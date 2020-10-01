@@ -1,0 +1,25 @@
+{
+  "name": "augurbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihh/augurbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ihh/augurbot/issues"
+  },
+  "homepage": "https://github.com/ihh/augurbot#readme",
+  "dependencies": {
+    "bracery": "^1.1.2",
+    "mersennetwister": "^0.2.3",
+    "node-getopt": "^0.3.2",
+    "twitter": "^1.7.1"
+  }
+}
