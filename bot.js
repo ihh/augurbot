@@ -14,7 +14,6 @@ const corporaBirds = __dirname + '/dariusk_corpora_birds.json';
 const opt = getopt.create([
   ['S' , 'status=N'    , 'print N statuses only, do not tweet or generate image'],
   ['t' , 'test'        , 'test mode: do not tweet'],
-  ['s' , 'seed=N'      , 'seed random number generator'],
   ['h' , 'help'        , 'display this help message']
 ])              // create Getopt instance
       .bindHelp()     // bind option 'help' to default action
@@ -22,17 +21,10 @@ const opt = getopt.create([
 
 let maxStatusLen = 240  // give a bit of room
 
-let seed = opt.options.seed
-if (typeof(seed) === 'undefined') {
-  seed = new Date().getTime()
-  console.warn ("Random number seed: " + seed)
-}
-
 let rules = {}
 const imported = JSON.parse(fs.readFileSync(corpora).toString())
 imported.forEach ((entry) => { rules[entry.name] = entry.rules.map (rhs => rhs.join("")) })
 const braceryEngine = new Bracery (rules)
-// braceryEngine.rng = new MersenneTwister (seed)
 const statusBracery = fs.readFileSync(statusGrammar).toString()
 const makeStatus = () => {
   let status
